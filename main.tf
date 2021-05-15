@@ -16,7 +16,7 @@ provider "azurerm" {
 
 resource "azurerm_resource_group" "rg" {
 
-  name     = "Azurecli33"
+  name     = "Azurecli"
   location = "North Europe"
   tags = {
         Environment = "Terraform Getting Started"
@@ -90,7 +90,7 @@ resource "azurerm_network_interface" "nic" {
   }
 }
 resource "azurerm_virtual_machine" "vm" {
-  name                  = "myTFVM"
+  name                  = "myTFVM1"
   location              = "North Europe"
   resource_group_name   = azurerm_resource_group.rg.name
   network_interface_ids = [azurerm_network_interface.nic.id]

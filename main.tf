@@ -89,7 +89,7 @@ resource "azurerm_network_interface" "nic" {
     public_ip_address_id          = azurerm_public_ip.publicip.id
   }
 }
-resource "azurerm_virtual_machine" "vm" {
+resource "azurerm_virtual_machine" "vm1" {
   name                  = "myTFVM1"
   location              = "North Europe"
   resource_group_name   = azurerm_resource_group.rg.name

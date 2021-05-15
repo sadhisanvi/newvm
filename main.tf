@@ -78,7 +78,7 @@ variable "admin_password" {
 }
  #Create network interface
 resource "azurerm_network_interface" "nic" {
-  name                      = "myNIC"
+  name                      = "myNIC1"
   location                  = "North Europe"
   resource_group_name       = azurerm_resource_group.rg.name
 
@@ -90,7 +90,7 @@ resource "azurerm_network_interface" "nic" {
   }
 }
 resource "azurerm_virtual_machine" "vm" {
-  name                  = "myTFVM"
+  name                  = "myTFVM1"
   location              = "North Europe"
   resource_group_name   = azurerm_resource_group.rg.name
   network_interface_ids = [azurerm_network_interface.nic.id]

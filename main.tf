@@ -27,13 +27,13 @@ resource "azurerm_resource_group" "rg" {
 resource "azurerm_virtual_network" "vnet" {
     name                = "myTFVnet"
     address_space       = ["10.0.0.0/16"]
-    location            = "westus2"
+    location            = "North Europe"
     resource_group_name = azurerm_resource_group.rg.name
 }
 # Create public IP
 resource "azurerm_public_ip" "publicip" {
   name                = "myTFPublicIP"
-  location            = "westus2"
+  location            = "North Europe"
   resource_group_name = azurerm_resource_group.rg.name
   allocation_method   = "Static"
   tags = {
@@ -52,7 +52,7 @@ resource "azurerm_subnet" "subnet" {
 # Create Network Security Group and rule
 resource "azurerm_network_security_group" "nsg" {
   name                = "myTFNSG"
-  location            = "westus2"
+  location            = "North Europe"
   resource_group_name = azurerm_resource_group.rg.name
 
   security_rule {
@@ -79,7 +79,7 @@ variable "admin_password" {
  #Create network interface
 resource "azurerm_network_interface" "nic" {
   name                      = "myNIC"
-  location                  = "westus2"
+  location                  = "North Europe"
   resource_group_name       = azurerm_resource_group.rg.name
 
   ip_configuration {
@@ -91,7 +91,7 @@ resource "azurerm_network_interface" "nic" {
 }
 resource "azurerm_virtual_machine" "vm" {
   name                  = "myTFVM"
-  location              = "westus2"
+  location              = "North Europe"
   resource_group_name   = azurerm_resource_group.rg.name
   network_interface_ids = [azurerm_network_interface.nic.id]
   vm_size               = "Standard_DS1_v2"
